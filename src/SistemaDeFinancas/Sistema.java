@@ -66,6 +66,7 @@ public class Sistema {
                     System.out.println("\n===RECEITAS==");
 
                     for (Transacao t3 : lista) {
+                        if (t3.getTipo().equals("ENTRADA"))
                         t3.mostrar();
                         System.out.println("----------------------");
                     }
@@ -77,6 +78,7 @@ public class Sistema {
                     System.out.println("\n===DESPESA===");
 
                     for (Transacao t4 : listad) {
+                        if (t4.getTipo().equals("SAIDA"))
                         t4.mostrar();
                         System.out.println("-------------------");
                     }
@@ -115,7 +117,9 @@ public class Sistema {
                     sc.nextLine();
 
                     System.out.print("Novo tipo ENTRADA/SAIDA: ");
-                    String novoTipo = sc.nextLine();
+                    String novoTipo = sc.nextLine().toUpperCase(
+
+                    );
 
                     dao.atualizar(idAtualizar, novaDescricao, novoValor, novoTipo);
                     break;
